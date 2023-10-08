@@ -1,0 +1,30 @@
+//to find the maximum no from three nos
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	int a,b,c,max;
+	clrscr();
+	printf("Enter three nos");
+	scanf("%d%d%d",&a,&b,&c);
+	if(a>b)
+	{
+		if(a>c)
+			max=a;
+		else
+			max=c;
+	}
+	else
+	{
+		if(b>c)
+			max=b;
+		else
+			max=c;
+	}
+	printf("The maximum is %d",max);
+
+
+
+	getch();
+
+}

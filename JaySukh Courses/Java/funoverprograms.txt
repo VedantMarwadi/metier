@@ -1,0 +1,3 @@
+1)WAP using function overloading to make addition of 2 integers, 3 integers, 2 float as well as three float values. 
+
+2)WAP using function overloading such that if i call function add with 2 strings then it performs concats and if I call add functions with 2 numbers then perform additions. 

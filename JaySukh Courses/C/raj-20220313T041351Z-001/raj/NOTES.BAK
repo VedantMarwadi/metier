@@ -1,0 +1,41 @@
+//to find the no of notes of 1000,500,100,50,20,10,1
+
+#include<stdio.h>  //it is pre processor directive
+#include<conio.h>  //to incloude any file
+void main()
+{
+	int amt,no;
+	clrscr();
+	printf("Enter any amount");
+	scanf("%d",&amt);
+
+	no=amt/1000;
+	printf("no of 1000 notes are %d\n",no);
+	amt=amt%1000;
+	//amt=amt-(no*1000);
+	no=amt/500;
+	printf("no of 500 notes are %d\n",no);
+	amt=amt%500;
+
+	no=amt/100;
+	printf("no of 100 notes are %d\n",no);
+	amt=amt%100;
+
+
+	no=amt/50;
+	printf("no of 50 notes are %d\n",no);
+	amt=amt%50;
+
+	no=amt/20;
+	printf("no of 20 notes are %d\n",no);
+	amt=amt%20;
+
+	no=amt/10;
+	printf("no of 10 notes are %d\n",no);
+	amt=amt%10;
+
+	no=amt/1;
+	printf("no of 1 notes are %d\n",no);
+	getch();
+
+}

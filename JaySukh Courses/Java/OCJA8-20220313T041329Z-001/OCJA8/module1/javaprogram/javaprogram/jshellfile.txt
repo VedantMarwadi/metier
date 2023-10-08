@@ -1,0 +1,28 @@
+1
+x*=2
+Math.sqrt(8)
+"hello World"
+$2=3
+int x=20000000;
+calVolume(1)
+calArea(1)
+double calArea(double r)
+{
+return 4*Math.PI*r*r;
+}
+calVolume(1)
+calArea(1)
+calVolume(1)
+calVolume(1)
+double irate=0.02;
+void intr(double balance)
+{
+balance+=balance*irate;
+printbal(balance);
+}
+void printbal(double balance)
+{
+System.out.println("Balance : $"+balance);
+}
+intr(500)
+intr(600)

@@ -1,0 +1,43 @@
+Employee---class
+
+Properties
+	codeno
+	name
+	address
+	phoneno
+	departments
+	basicsalary
+	tada
+	hra
+	pf
+	netsalary
+
+methods
+	getemployeedetails1()---direct input
+	getemployeedetails2()---parameterised input
+	getemployeedetails3()---user input---scanner
+	getemployeedetails4()---user input---datainputstream
+	getemployeedetails5()---user input---bufferedreader
+	showemployeedetails()---show
+	calnetsalary()-------tada---10%of basicsalary
+			     hra----12% of Basic
+			     pf-----15% of basic
+			     netsalary=basic+tada+hra-pf
+	getter and setter method with logic
+
+Book ---class
+
+	properties
+		bookid
+		authorname
+		publishername
+		title
+		noofpages
+		price
+		Quantity
+
+	methods
+		getdata()--user input
+		showdata
+		calbill-----to calculate bill
+		getter and setter method with logic

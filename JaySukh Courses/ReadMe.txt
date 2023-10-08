@@ -1,0 +1,1 @@
+This directory comprises various courses I completed with JaySukh Sir, excluding C++ and .Net.

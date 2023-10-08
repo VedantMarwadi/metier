@@ -1,0 +1,32 @@
+//single character by character reading and writing
+#include<iostream.h>
+#include<conio.h>
+#include<fstream.h>
+void main()
+{
+	int i;
+
+	char str[]="I am using input output file for reading and writing file contents";
+
+	ofstream out;
+	clrscr();
+	out.open("jay2.txt");
+	for(i=0;str[i]!='\0';i++)
+	{
+	     out.put(str[i]);
+	}
+
+	out.close();
+
+	ifstream in;
+	char ch;
+	in.open("jay2.txt");
+	while(in)
+	{
+		in.get(ch);
+		cout<<ch;
+	}
+	in.close();
+	getch();
+
+}

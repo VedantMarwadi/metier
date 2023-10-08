@@ -1,0 +1,32 @@
+//reverse no
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	long int no,revno=0,temp;
+	int rem;
+	clrscr();
+	printf("Enter any no");
+	scanf("%ld",&no);
+	temp=no;
+	while(no>0)
+	{
+		rem=no%10;
+		revno=(revno*10)+rem;
+		//printf("%d",rem);
+		no=no/10;
+	}
+	printf("The reverse no %ld\n",revno);
+	if(revno==temp)
+		printf("It is pallendrome number");
+	else
+		printf("it is not a pallendrome number");
+	getch();
+}
+/*rem=3,5,1
+no=153,15,1,0
+revno=0,3,35,351
+temp=153*/
+
+
+

@@ -1,0 +1,231 @@
+Multi-module mode can be useful if we are developing multiple modules which are closely related. In this mode, we can compile all sub modules at once (by specifying --module-source-path) instead of compiling individual modules.
+
+We are going to create two modules based on multi-module directory structure.
+
+The First Module
+core.app/core/util/WorkerUtil.java
+package core.util;
+
+public class WorkerUtil {
+  public static void doSomething() {
+      System.out.println("WorkerUtil working..");
+  }
+}
+
+
+core.app/module-info.java
+module core.app {
+  exports core.util;
+}
+
+
+
+The Second Module
+main.app/example/app/AppMain.java
+package example.app;
+
+import core.util.WorkerUtil;
+
+public class AppMain {
+    public static void main(String[] args) {
+        WorkerUtil.doSomething();
+    }
+}
+
+
+main.app/module-info.java
+module main.app {
+  requires core.app;
+}
+
+
+Compiling
+Let's save a list of all java classes in a file, so that we can use @fileName as argument of javac command.
+
+D:\multi-module-project>dir  /B  /S  src\*.java > javaFiles.txt
+
+Confirm our text file has all java source files:
+
+D:\multi-module-project>type javaFiles.txt
+D:\multi-module-project\src\core.app\module-info.java
+D:\multi-module-project\src\core.app\core\util\WorkerUtil.java
+D:\multi-module-project\src\main.app\module-info.java
+D:\multi-module-project\src\main.app\example\app\AppMain.java
+
+
+Compiling:
+
+D:\multi-module-project>javac -d outDir --module-source-path src @javaFiles.txt
+
+
+The --module-source-path option (used above) is specific to multi-module mode which specifies the main source directory for multiple modules.
+
+Running
+D:\multi-module-project>java --module-path outDir --module main.app/example.app.AppMain
+
+
+
+
+Java 9 Modules - Multi Module Mode Example
+[Last Updated: Oct 16, 2017]
+
+In the last tutorial, we saw different compilation modes in Java 9.
+
+Multi-module mode can be useful if we are developing multiple modules which are closely related. In this mode, we can compile all sub modules at once (by specifying --module-source-path) instead of compiling individual modules.
+
+In this example, we will see a complete example of multi-module mode. We will also learn how to compile, run and package (in jar) the multi-module project.
+
+Example
+We are going to create two modules based on multi-module directory structure.
+
+The First Module
+core.app/core/util/WorkerUtil.java
+package core.util;
+
+public class WorkerUtil {
+  public static void doSomething() {
+      System.out.println("WorkerUtil working..");
+  }
+}
+core.app/module-info.java
+module core.app {
+  exports core.util;
+}
+
+ 
+The Second Module
+main.app/example/app/AppMain.java
+package example.app;
+
+import core.util.WorkerUtil;
+
+public class AppMain {
+    public static void main(String[] args) {
+        WorkerUtil.doSomething();
+    }
+}
+main.app/module-info.java
+module main.app {
+  requires core.app;
+}
+Here is our project's directory structure.
+
+D:\multi-module-project>tree /A /F
+\---src
+    +---core.app
+    |   |   module-info.java
+    |   |   
+    |   \---core
+    |       \---util
+    |               WorkerUtil.java
+    |               
+    \---main.app
+        |   module-info.java
+        |   
+        \---example
+            \---app
+                    AppMain.java
+                    
+
+ 
+Compiling
+Let's save a list of all java classes in a file, so that we can use @fileName as argument of javac command.
+
+D:\multi-module-project>dir  /B  /S  src\*.java > javaFiles.txt
+Confirm our text file has all java source files:
+
+D:\multi-module-project>type javaFiles.txt
+D:\multi-module-project\src\core.app\module-info.java
+D:\multi-module-project\src\core.app\core\util\WorkerUtil.java
+D:\multi-module-project\src\main.app\module-info.java
+D:\multi-module-project\src\main.app\example\app\AppMain.java
+Compiling:
+
+D:\multi-module-project>javac -d outDir --module-source-path src @javaFiles.txt
+The --module-source-path option (used above) is specific to multi-module mode which specifies the main source directory for multiple modules.
+
+After compilation:
+
+D:\multi-module-project>tree /A /F
+|   javaFiles.txt
+|   
++---outDir
+|   +---core.app
+|   |   |   module-info.class
+|   |   |   
+|   |   \---core
+|   |       \---util
+|   |               WorkerUtil.class
+|   |               
+|   \---main.app
+|       |   module-info.class
+|       |   
+|       \---example
+|           \---app
+|                   AppMain.class
+|                   
+\---src
+    +---core.app
+    |   |   module-info.java
+    |   |   
+    |   \---core
+    |       \---util
+    |               WorkerUtil.java
+    |               
+    \---main.app
+        |   module-info.java
+        |   
+        \---example
+            \---app
+                    AppMain.java
+                    
+Running
+D:\multi-module-project>java --module-path outDir --module main.app/example.app.AppMain
+WorkerUtil working..
+Packaging in Jar
+We still need to package individual modules in separate jar files.
+
+D:\multi-module-project>mkdir pkg
+D:\multi-module-project>jar --create --file pkg\core.app.jar -C outDir\core.app .
+D:\multi-module-project>jar --create --file pkg\app.main.jar --main-class=example.app.AppMain  -C outDir\main.app .
+D:\multi-module-project\pkg>tree /A /F
+    app.main.jar
+    core.app.jar
+    
+No subfolders exist 
+Checking the content of jars:
+
+D:\multi-module-project>jar --list --file pkg\core.app.jar
+META-INF/
+META-INF/MANIFEST.MF
+module-info.class
+core/
+core/util/
+core/util/WorkerUtil.class
+D:\multi-module-project>jar --list --file pkg\app.main.jar
+META-INF/
+META-INF/MANIFEST.MF
+module-info.class
+example/
+example/app/
+example/app/AppMain.class
+Running:
+
+D:\multi-module-project>java --module-path pkg --module main.app/example.app.AppMain
+WorkerUtil working..
+Using --describe-module:
+
+D:\multi-module-project>jar --describe-module --file pkg\core.app.jar
+core.app jar:file:///D:/multi-module-project/pkg/core.app.jar/!module-info.class
+exports core.util
+requires java.base mandated
+D:\multi-module-project>jar --describe-module --file pkg\app.main.jar
+main.app jar:file:///D:/multi-module-project/pkg/app.main.jar/!module-info.class
+requires core.app
+requires java.base mandated
+contains example.app
+main-class example.app.AppMain
+
+
+
+

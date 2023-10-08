@@ -1,0 +1,28 @@
+Object
+
+public String toString()---return string--classname@hexadecimalvalue
+
+you have to overide this method in your class
+
+you can return contents of your objects
+
+
+
+if contens of two objects are same then hashcode value of these objects must be same
+
+public boolean equals(Object o)---
+
+if compares the reference(address) of two objects
+
+you have to overide this method in your class
+
+you can compare contents of two objects
+
+public int hashcode()-
+
+it gives a hashcode value depends upon object address
+
+you have to overide this method in your class
+
+you can generate hashcode value depends upon contents of an object
+

@@ -1,0 +1,26 @@
+static block---it is executed only once when the the class is loaded into the memory
+		you can write more than one static block in class but it is executed in 
+the order in which it is declared
+
+class A
+{
+	static
+	{
+		//statment
+	}
+}
+
+
+Object initializer block--
+
+it is executed every time when you create the object but before the constructer
+you can write more than one object initializer block in class but it is executed 
+in the order in which it is declared
+
+class A
+{
+	
+	{
+		//statment
+	}
+}

@@ -1,0 +1,41 @@
+//sorting of an array in assending or dessending order
+//selection sort
+#include<stdio.h>
+void main()
+{
+	int a[10],i,temp,j;
+	clrscr();
+	printf("Enter any 10 int values");
+	for(i=0;i<10;i++)
+	{
+		printf("Enter value");
+		scanf("%d",&a[i]);
+
+	}
+	printf("\nbefore sorting\n");
+	for(i=0;i<10;i++)
+	{
+		printf("%d\t",a[i]);
+	}
+	for(i=0;i<10;i++)
+	{
+		for(j=i+1;j<10;j++)
+		{
+			if(a[i]>a[j])
+			{
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+
+			}
+		}
+	}
+	printf("\nafter sorting\n");
+	for(i=0;i<10;i++)
+	{
+		printf("%d\t",a[i]);
+	}
+
+
+	getch();
+}

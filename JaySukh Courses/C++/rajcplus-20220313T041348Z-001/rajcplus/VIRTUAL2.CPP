@@ -1,0 +1,45 @@
+//example of virtual function
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+class A
+{
+	public:
+	virtual void show()
+	{
+		cout<<"I am virtual function of A class"<<endl;
+	}
+	 virtual void disp()
+	{
+		cout<<"A class --I am normal function"<<endl;
+
+	}
+
+};
+class B:public A
+{
+	public:
+	void show()
+	{
+		cout<<"Class B--show function"<<endl;
+	}
+	void disp()
+	{
+		cout<<"class B-disp fuction"<<endl;
+
+	}
+
+};
+void main()
+{
+
+	clrscr();
+	A *a1;
+	B b1;
+	a1=&b1;
+	a1->show();//child(B)
+	a1->disp();//child(B)
+
+	getch();
+}
+

@@ -1,0 +1,21 @@
+//to copy one file into another file
+//string i/o
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+	FILE *p,*q;
+	char ch[50];
+	clrscr();
+	p=fopen("fun2.c","r");
+	q=fopen("temp12.c","w");
+	while(fgets(ch,31,p)!=NULL)
+	{
+		fputs(ch,q);
+		printf("%s",ch);
+	}
+	fclose(p);
+	fclose(q);
+	getch();
+
+}

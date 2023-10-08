@@ -1,0 +1,30 @@
+//factorial
+#include<stdio.h>
+#include<conio.h>
+long int factorial(int);
+void main()
+{
+
+	int no;
+	long fact;
+	clrscr();
+	printf("Enter any no");
+	scanf("%d",&no);
+	fact=factorial(no);
+	printf("The factorial is %ld",fact);
+	getch();
+
+}
+long int factorial(int no)
+{
+	long int fact;
+	if(no==1)
+		return 1 	;
+	else
+	{
+		fact=no*factorial(no-1);
+	}
+	return fact;
+}
+
+

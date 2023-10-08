@@ -1,0 +1,33 @@
+//local variable
+#include<stdio.h>
+#include<conio.h>
+void fun1();
+void fun2();
+void fun3();
+void main()
+{
+	int a= 10; //local to main
+	clrscr();
+	fun1();
+	fun2();
+	fun3();
+	printf("local to main %d\n",a);
+	getch();
+
+}
+void fun1()
+{
+	int a=100; //local to fun1
+	printf("Fun1 local = %d\n",a);
+}
+void fun2()
+{
+	int a=1000;//local to fun2
+	printf("Fun2 local = %d\n",a);
+}
+void fun3()
+{
+	int a=10000;//local to fun3
+	printf("Fun3 local = %d\n",a);
+}
+

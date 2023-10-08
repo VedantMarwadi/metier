@@ -1,0 +1,353 @@
+Microsoft Windows [Version 10.0.18363.1082]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\darsh\src\com\greeting>cd..
+
+C:\darsh\src\com>cd..
+
+C:\darsh\src>cd..
+
+C:\darsh>javac *.java
+Exception in thread "main" java.nio.file.InvalidPathException: Illegal char <*> at index 0: *.java
+        at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:182)
+        at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:153)
+        at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+        at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+        at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:229)
+        at java.base/java.nio.file.Path.of(Path.java:147)
+        at java.base/java.nio.file.Paths.get(Paths.java:69)
+        at jdk.compiler/com.sun.tools.javac.main.Option$37.process(Option.java:693)
+        at jdk.compiler/com.sun.tools.javac.main.Option.handleOption(Option.java:1088)
+        at jdk.compiler/com.sun.tools.javac.main.Arguments.doProcessArgs(Arguments.java:381)
+        at jdk.compiler/com.sun.tools.javac.main.Arguments.processArgs(Arguments.java:347)
+        at jdk.compiler/com.sun.tools.javac.main.Arguments.init(Arguments.java:193)
+        at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:229)
+        at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:170)
+        at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:57)
+        at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:43)
+
+C:\darsh>javac -d classes src/com/greeting/Main.java
+
+C:\darsh>tree -a
+Folder PATH listing
+Volume serial number is 4499-F198
+C:\DARSH\-A
+Invalid path - \DARSH\-A
+No subfolders exist
+
+
+C:\darsh>tree /a
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
++---classes
+|   \---com
+|       \---greeting
+\---src
+    \---com
+        \---greeting
+
+C:\darsh>tree /a
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
++---classes
+|   \---com
+|       \---greeting
+\---src
+    \---com
+        \---greeting
+
+C:\darsh>/f
+'/f' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\darsh>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+├───classes
+│   └───com
+│       └───greeting
+│               Main.class
+│
+└───src
+    └───com
+        └───greeting
+                Main.java
+
+
+C:\darsh>java -cp classes com.greeting.Main
+Hello
+
+C:\darsh>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+├───classes
+│   └───com
+│       └───greeting
+│               Main.class
+│
+└───src
+    └───hello
+        └───com
+            └───greeting
+                    Main.java
+
+
+C:\darsh>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+├───classes
+│   └───com
+│       └───greeting
+│               Main.class
+│
+└───src
+    └───hello
+        │   module-info.java
+        │
+        └───com
+            └───greeting
+                    Main.java
+
+
+C:\darsh>javac -d mods/hello src/hello/module-info.java src/hello/com/greeting/Main.java
+
+C:\darsh>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+├───classes
+│   └───com
+│       └───greeting
+│               Main.class
+│
+├───mods
+│   └───hello
+│       │   module-info.class
+│       │
+│       └───com
+│           └───greeting
+│                   Main.class
+│
+└───src
+    └───hello
+        │   module-info.java
+        │
+        └───com
+            └───greeting
+                    Main.java
+
+
+C:\darsh>java -p mods -m hello/com.greeting.Main
+Hello
+
+C:\darsh>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+├───classes
+│   └───com
+│       └───greeting
+│               Main.class
+│
+├───mods
+│   └───hello
+│       │   module-info.class
+│       │
+│       └───com
+│           └───greeting
+│                   Main.class
+│
+└───src
+    └───hello
+        │   module-info.java
+        │
+        └───com
+            └───greeting
+                    Main.java
+
+
+C:\darsh>cd..
+
+C:\>cd darsh2
+
+C:\darsh2>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+└───src
+    └───core.app
+        └───core
+            └───util
+                    WorkerUtil.java
+
+
+C:\darsh2>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+└───src
+    ├───core.app
+    │   │   module-info.java
+    │   │
+    │   └───core
+    │       └───util
+    │               WorkerUtil.java
+    │
+    └───main.app
+        │   module-info.java
+        │
+        └───example
+            └───app
+                    AppMain.java
+
+
+C:\darsh2>dir  /B  /S  src\*.java > javaFiles.txt
+
+C:\darsh2>javac -d outDir --module-source-path src @javaFiles.txt
+C:\darsh2\src\main.app\module-info.java:3: error: module directive keyword or '}' expected
+require core.app;
+^
+1 error
+
+C:\darsh2>javac -d outDir --module-source-path src @javaFiles.txt
+
+C:\darsh2>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+│   javaFiles.txt
+│
+├───outDir
+│   ├───core.app
+│   │   │   module-info.class
+│   │   │
+│   │   └───core
+│   │       └───util
+│   │               WorkerUtil.class
+│   │
+│   └───main.app
+│       │   module-info.class
+│       │
+│       └───example
+│           └───app
+│                   AppMain.class
+│
+└───src
+    ├───core.app
+    │   │   module-info.java
+    │   │
+    │   └───core
+    │       └───util
+    │               WorkerUtil.java
+    │
+    └───main.app
+        │   module-info.java
+        │
+        └───example
+            └───app
+                    AppMain.java
+
+
+C:\darsh2>java --module-path outDir --module main.app/example.app.AppMain
+Hi
+
+C:\darsh2>jar --create --file pkg\core.app.jar -C outDir\core.app .
+
+C:\darsh2>jar --create --file pkg\app.main.jar --main-class=example.app.AppMain  -C outDir\main.app .
+
+C:\darsh2>tree /f
+Folder PATH listing
+Volume serial number is 4499-F198
+C:.
+│   javaFiles.txt
+│
+├───outDir
+│   ├───core.app
+│   │   │   module-info.class
+│   │   │
+│   │   └───core
+│   │       └───util
+│   │               WorkerUtil.class
+│   │
+│   └───main.app
+│       │   module-info.class
+│       │
+│       └───example
+│           └───app
+│                   AppMain.class
+│
+├───pkg
+│       app.main.jar
+│       core.app.jar
+│
+└───src
+    ├───core.app
+    │   │   module-info.java
+    │   │
+    │   └───core
+    │       └───util
+    │               WorkerUtil.java
+    │
+    └───main.app
+        │   module-info.java
+        │
+        └───example
+            └───app
+                    AppMain.java
+
+
+C:\darsh2>app.main.jar
+'app.main.jar' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\darsh2>jar --list --file pkg\core.app.jar
+META-INF/
+META-INF/MANIFEST.MF
+module-info.class
+core/
+core/util/
+core/util/WorkerUtil.class
+
+C:\darsh2>
+C:\darsh2>
+C:\darsh2>jar --list --file pkg\core.app.jar
+META-INF/
+META-INF/MANIFEST.MF
+module-info.class
+core/
+core/util/
+core/util/WorkerUtil.class
+
+C:\darsh2>
+C:\darsh2>
+C:\darsh2>jar --list --file pkg\app.main.jar
+META-INF/
+META-INF/MANIFEST.MF
+module-info.class
+example/
+example/app/
+example/app/AppMain.class
+
+C:\darsh2>java --module-path pkg --module main.app/example.app.AppMain
+Hi
+
+C:\darsh2>jar --describe-module --file pkg\core.app.jar
+core.app jar:file:///C:/darsh2/pkg/core.app.jar/!module-info.class
+exports core.util
+requires java.base mandated
+
+
+C:\darsh2>jar --describe-module --file pkg\app.main.jar
+main.app jar:file:///C:/darsh2/pkg/app.main.jar/!module-info.class
+requires core.app
+requires java.base mandated
+contains example.app
+main-class example.app.AppMain
+
+
+C:\darsh2>

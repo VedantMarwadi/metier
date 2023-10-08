@@ -1,0 +1,22 @@
+//static variable
+#include<stdio.h>
+#include<conio.h>
+void fun1();
+void main()
+{
+
+	int i;
+	clrscr();
+	for(i=1;i<=50;i++)
+	{
+		fun1();
+	}
+	getch();
+
+}
+void fun1()
+{
+	static int a;  //local to fun1
+	a++;
+	printf("Fun1 local = %d\n",a);
+}

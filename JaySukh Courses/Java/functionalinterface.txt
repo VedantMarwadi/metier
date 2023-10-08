@@ -1,0 +1,29 @@
+Predicate--- boolean test(argument)
+
+BiConsumer---two argument accept--no return value
+		void accept(argument1,argument2)
+
+
+Consumer---single argument accept--no return value
+		void accept(argument1)
+
+
+Function-----single argument accept--return value--yes
+		return value  apply(argument)
+
+
+BiPredicate---boolean test(argument1,argument2)
+
+
+supplier-----return value--yes
+		no argument
+
+	return type	get()
+
+unneryoperator----argumnet and return type must be same--one argument
+		return value apply(argument)
+
+binaryoperator----two argumnet and return type must be same--two argument
+		return value apply(argument1,argument2)
+
+

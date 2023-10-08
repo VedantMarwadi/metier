@@ -1,0 +1,83 @@
+functional interface
+interface i1
+{
+	int add(int,int);
+}
+
+1)standard maner to implement this interface
+class A implements i1
+{
+	public int add(int a,int b)
+	{
+		return a+b;
+	}
+}
+
+A a1=new A();
+c=a1.add(10,20);
+print(c)
+
+2)short cut method to implement any interface(anynomous class--It is having no any name)
+c=new i1()
+{
+	public int add(int a,int b)
+	{
+		return a+b;
+	}
+}.add(10,20);
+print(c)
+
+3)
+
+i1 a=(a,b)->a+b;
+//i1 a=(a,b)->{return a+b;};
+c=a.add(10,20);
+print(c)
+
+1)
+interface i1
+{
+	void show();
+}
+
+i1 p=()->System.out.println("hello");
+p.show();
+
+2)
+interface i1
+{
+	void show(int);
+}
+
+i1 p=(a)->System.out.println("hello"+a);
+p.show(10);
+
+3)
+interface i1
+{
+	int show();
+}
+
+i1 p=()->{return 10;};
+//i1 p=()->10;
+System.out.println(p.show());
+
+4)
+interface i1
+{
+	int show(int);
+}
+
+i1 p=a->{return a*a;};
+System.out.println(p.show(10));
+
+5)
+interface i1
+{
+	int show(int,int,int);
+}
+
+i1 p=(a,b,c)->{return a*b*c;};
+System.out.println(p.show(2,3,5));
+
+

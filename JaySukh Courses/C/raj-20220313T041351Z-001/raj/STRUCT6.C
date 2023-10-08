@@ -1,0 +1,50 @@
+#include<conio.h>
+#include<stdio.h>
+struct emp
+{
+	int codeno;
+	char name[25];
+	long int bsalary;
+	long int tada,hra,pf,netsalary;
+
+};
+
+//void calsalary(struct emp*);
+struct emp calsalary2(struct emp);
+void main()
+{
+	int i;
+	struct emp e[3];
+	clrscr();
+	for(i=0;i<3;i++)
+	{
+		printf("Enter codeno name basic salary");
+		scanf("%d%s%ld",&e[i].codeno,e[i].name,&e[i].bsalary);
+		//calsalary(&e[i]);
+		e[i]=calsalary2(e[i]);
+	}
+
+	printf("codenoo\tempName\tbassal\ttada\thra\tpf\tnetsalary\n");
+	for(i=0;i<3;i++)
+	{
+		printf("%d\t%s\t%ld\t%ld\t%ld\t%ld\t%ld\n",e[i].codeno,e[i].name,e[i].bsalary,e[i].tada,e[i].hra,e[i].pf,e[i].netsalary);
+	}
+	getch();
+}
+/*void calsalary(struct emp *p)
+{
+	p->hra=p->bsalary*10/100;
+	p->tada=p->bsalary*12/100;
+	p->pf=p->bsalary*15/100;
+	p->netsalary=p->bsalary+p->tada+p->hra-(p->pf);
+
+}*/
+struct emp calsalary2(struct emp p)
+{
+	p.hra=p.bsalary*10/100;
+	p.tada=p.bsalary*12/100;
+	p.pf=p.bsalary*15/100;
+	p.netsalary=p.bsalary+p.tada+p.hra-(p.pf);
+	return p;
+
+}

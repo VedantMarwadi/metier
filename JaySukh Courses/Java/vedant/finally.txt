@@ -1,0 +1,33 @@
+1)
+	try
+	{
+	}
+	finally
+	{
+	}
+
+1)
+	try
+	{
+	}
+	catch(argument e)
+	{
+	}	
+	finally
+	{
+	}
+3)
+	try
+	{
+	}
+	catch(argument e)
+	{
+	}
+	catch(argument e)
+	{
+	}
+	finally
+	{
+	}
+It  is executed whether an execption occured or not 
+It is used to free any resoruces used in the program like to close the file,to close any stream,to colse any connection

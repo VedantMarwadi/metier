@@ -1,0 +1,527 @@
+single value parameter system
+I want to design feedback system by using dax
+take new report page
+goto home menu--modeling tab---new parameter
+name--feedback
+whole number
+minimum=1
+maximum=5
+ok
+
+it will create a slicer of 1 to 5 in new page
+goto the data view
+select feedback table
+select new column
+press windows key+dot---it will display you emoji
+Emoji=switch(true(),feedback[feedback]=1,"emoji",
+feedback[feedback]=2,"emoji",
+feedback[feedback]=3,"emoji",
+feedback[feedback]=4,"emoji",
+feedback[feedback]=5,"emoji")
+
+goto the report view
+take card visual--take emojis to this
+
+------------------------------------------------------------------------------------
+now create simple dashboard
+
+take new page
+select text table--customer name,total cost,total sales--arrange it
+add border,shadow
+
+take card--distinct customers-- set title to Total customers
+
+take slicer--country--select dropdown--border,shadow
+
+take card--total transactions--format it
+take card--total Profit--format it
+
+
+area chart--product name--axis
+		total sales--value
+		sales LY-secondary values
+
+if you change slicer value it will automatically give effect to all visuals
+so what if i want to keep some visuals static so they do not make changes by slicer
+
+select slicer---go to the format tab--edit interaction
+select none option for all card visual
+
+so if you select value from slicer other visuals are changed
+but three card visuals are became static
+
+
+take new page named it perfomance report last page which we have created
+take donut chart--take product name and total sales
+
+take line and column cluster chart---
+country-axis
+total sales--column value
+total profit--line values
+------------------------------------------------------------------------------------
+bookmark
+to create stories out of data
+you can use this option to save different states of the report
+
+how we can toggle between two reports by using--button,action,drilltrough,drilldown,bookmark
+book mark allows you to save the report state
+
+report view--view--bookmark and selection pane
+selection pane--it is having an on and off option for visual
+
+select bookmark---add--name--overall sales--right click on it and update it
+
+select slicer--denmark--it will display you denmark sales-I want to save this state
+select bookmark---add--name--denmark sales--right click on it and update it
+
+select slicer--finland--it will display you finland sales-
+but i dont want all the visuals i need only one visuals
+select chart of total sales lysales and select focus mode to highlight this chart only
+select bookmark---add--name-finaland sale---right click on it and update it
+
+select back to report option
+
+select slicer--germany--it will display you germany sales-
+i want to display all the visuals except chart of totalsales and total profit by country
+goto the selection pane and off this chart
+
+select bookmark---add--name-germany sale---right click on it and update it
+
+now how to test this bookmark
+select view--select one by one--exit
+
+take a new page--named it--button action
+
+open power point--just to create an image--two rectangles upper big and lower small with different colors
+now other two squares--intersecting two rectangel
+save it .jpg format
+
+take--cluster column chart--proudct name in axis and total sales in values
+take--cluster column chart--proudct name in axis and total profit in values
+click on blank area of report--format--background--add image--select image file
+set transperency
+
+adjust your both visuals into the square
+
+goto insert --button--blank----button text--All Report
+goto insert --button--blank----button text--sales Report
+goto insert --button--blank----button text--Profit Report
+
+goto view--bookmark and selection pane
+select bookmark---add--name-sales--off profit visual from selection pane--update it
+select bookmark---add--name-profit--off sales visual from selection pane--update it
+select bookmark---add--name-all----update it
+
+close book marks
+
+select button--action--type of action--bookmark--
+for all three button you have to assing a bookmark to particular button
+
+to test this cnrol+button you can use
+
+i want to use button to goto the another page
+
+goto insert --button--blank----button text--profit YTD
+goto action--action type--page navigation--select page
+
+how to create filters in the report
+1)visual level
+2)page level
+3)report level
+
+1)visual level
+select any one visual--select state and drag it at add data fields
+only this visual is filtered not other
+
+2)page level
+select any one visual--select state and drag it at filter on this page
+all the visual is filtered
+
+3)report level
+select any one visual--select state and drag it at filter all the pages
+all the visual are filtered in all pages
+
+what is the difference between sclicer and filter
+if you apply a filter for each page then you have to apply filter for individual page
+but in slicer can connected to all pages easily
+supoose i want to apply slicer for other pages then
+view option --synk slicer option
+in this option you can sync slicer for different pages
+------------------------------------------------------------------------------------
+how to toggel report
+drilldown
+drillthrough----we can take one visual to access another visual
+
+select donut chart from report--product sales
+i want to see country wise sales in this chart
+
+
+take a new page--named it product sales
+take card visual-product name
+
+take cluseters column chart--country--axis
+total sales--values
+
+value field---drill through--add drillthrough filter--product name
+
+goto the main report
+donut chart--right click--drill through--it will display you the report created above
+
+------------------------------------------------------------------------------------
+drilldown option--it will display you details on the same visual
+take new page
+select matrix table it has by defualt drilldown option
+select date--rows
+select total sales--values
+you can see the + sign you can get more details
+
+take new page
+select clustor column chart
+select date--axis
+total profit--values
+you can see some arrow icon on top
+for days it shows 35 days
+got to format option--x axis--type--categorical
+
+now here date is hirarchical so you will get result int terms of year,month,quater,days
+
+but remove date from axis
+add contry,state and city in the axis
+so again you get report in terms of country,state and city by pressing arrow key
+------------------------------------------------------------------------------------
+
+cross report
+it's type toggling between the report
+you can access one report through another report
+
+------------------------------------------------------------------------------------
+power bi service
+it is a cloud based service where we publish our report
+we can also create some additional functionality in the report
+It is SAAS--software as a service
+
+
+cross filters
+cross report drill through in power bi
+custom visuals
+card image
+paginated report
+row level secuiry
+data Gateway
+Questions and asnswer
+custom dashboard
+------------------------------------------------------------------------------------
+cross filters--you can see any visual if you select value from particular visual it will change the values in other visual also
+so you can take any visual for cross filter to filter other visuals
+it is possible because of relationship we have created.
+------------------------------------------------------------------------------------
+cross report
+you can apply or implement this feature in power bi service
+additional feature of drill through
+we can apply drill through between two different reports
+one report is source report
+other report is target report
+
+take a new power bi workbook file
+select lupinmeds data set
+load all the tables
+delete all the relationships
+create relationships manually
+
+take a card--select product name
+
+
+create a measure--total sales
+select cluster column chart
+select country---axis
+total sales--values
+
+select product name---drag it to drill through option
+name this page --target report
+now enable cross report option in target report
+
+got to file--option and setting-current file--report setting--cross report drillthrough--on-ok
+same thing you have to do for source report
+got to file--option and setting-current file--report setting--cross report drillthrough--on-ok
+------------------------------------------------------------------------------------
+difference between power bi desktop and power bi service
+power bi desktop	power bi service
+many data sources	some data sources
+transforming		dashboards
+shaping			app and workspaces
+modeling		sharing
+measures		pagineted report
+calculated columns	RLs Management
+python			gateway connection for automatic referesh
+themes
+RLS Creation
+(row level security)
+
+both contains
+reports
+visualizations
+security
+filters
+bookmarks
+questions and answers
+------------------------------------------------------------------------------------
+login to power bi service
+you have to publish every thing in my workspace
+save both the reports
+
+select publish--select my workspace--publish source report
+select publish--select my workspace--publish target report
+
+under my workspace there are so many options like
+report
+dataset
+dashboard etc
+------------------------------------------------------------------------------------
+dashboard--it is used for some custom report or dashborad from existing report you have published
+
+select any visual on the report--you can select pin option--you can pin this visual into the new dashboard
+
+select any visual on the report--you can select pin option--you can pin this visual into the existing dashboard
+
+in dahsboard--edit--add tile--add images,add text box,add vedio links
+sharing option not avaoable in free licencse
+
+to comunicate with other memebrs
+select visual--add comment--need to add the profit column
+reply--column has been updated
+
+subscribe--it is used to share report--user can not edit it only see it
+just email id
+and other information
+
+click on three dots--download--paginated report builder
+click export--pdf-it is just save only image of report
+
+------------------------------------------------------------------------------------
+custom visual
+take a new page
+named it custom visual
+sunburst
+country and state to groups
+values--total sales
+
+make duplicate report
+now insted of country name i want to show flag of country
+enlighten word flag slicer
+use country name
+------------------------------------------------------------------------------------
+how use image in card
+insert image option
+------------------------------------------------------------------------------------
+questions and answer--natural lang understanding capability of power bi desktop
+take a new page
+it works around three things
+table
+meausre
+column
+double clik on blank part
+total sales by customer name as text table or any other visual
+
+total cost by product name
+total profit by product name as donut chart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

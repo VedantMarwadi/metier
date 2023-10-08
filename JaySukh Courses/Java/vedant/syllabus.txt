@@ -1,0 +1,11 @@
+multithreding--synchronization,dead lock,sleep,wait
+awt--layout--event--dialog--
+io package
+serialization
+randomaccessfile
+fileinputstream
+fileoutputstream
+filereader
+filewriter
+
+

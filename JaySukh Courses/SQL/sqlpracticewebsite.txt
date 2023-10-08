@@ -1,0 +1,25 @@
+ TOP 10 SQL PRACTICE RESOURCES BELOW. 👇 Everything 👇
+
+ DATALEMUR - https://datalemur.com/
+
+LEETCODE - https://leetcode.com/
+
+Zachary Thomas' SQL Questions - https://lnkd.in/d-zphwmK
+
+WINDOW FUNCTIONS - https://lnkd.in/d9WKzcYw
+
+🌐 ( 5 ) - CODE ACADEMY - https://lnkd.in/db-sKX9S
+
+🌐 ( 6 ) - SQL BOLT - https://sqlbolt.com/
+
+🌐 ( 7 ) - SQL ZOO - https://lnkd.in/djV-BDpj
+
+🌐 ( 8 ) - HACKERANK - https://lnkd.in/d6MddjMQ
+
+🌐 ( 9 ) - SQL TEACHING - https://lnkd.in/dpCmTJBF
+
+🌐 ( 10 ) - W3 SCHOOL - https://lnkd.in/dNdWEuJw
+
+📌 Also find the SQL Mind map below for your quick revision and understanding of major functions and concepts at a glance
+
+#sql #data #dataanalytics #bigdata

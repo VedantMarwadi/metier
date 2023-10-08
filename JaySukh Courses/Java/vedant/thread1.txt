@@ -1,0 +1,10 @@
+1)extends Thread class
+2)implements Runnable interface
+
+thread life cycle
+1)new state
+2)runnable state
+3)running
+4)blocked state
+5)dead state
+

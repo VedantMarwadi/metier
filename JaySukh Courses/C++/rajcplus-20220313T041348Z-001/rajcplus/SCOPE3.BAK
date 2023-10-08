@@ -1,0 +1,20 @@
+#include<iostream.h>
+#include<conio.h>
+int a=10;		 //global variable
+void main()
+{
+	int a=100;/	/local to main
+	int b=67;//local to main
+	clrscr();
+	{
+		int a=1000;//local to block
+		cout<<"local to block "<<a<<endl;
+		cout<<"Global "<<::a<<endl;
+		cout<<"b "<<b<<endl;
+	}
+	cout<<"local to main "<<a<<endl;
+	cout<<"Global "<<::a<<endl;
+	getch();
+
+
+}

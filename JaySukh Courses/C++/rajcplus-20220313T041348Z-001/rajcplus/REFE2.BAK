@@ -1,0 +1,35 @@
+#include<iostream.h>
+#include<conio.h>
+
+void swap(int &c,int &d)
+{
+	int temp;
+	temp=c;
+	c=d;
+	d=temp;
+	cout<<"reference"<<endl;
+
+}
+void swap(int *c,int *d)
+{
+	int temp;
+	temp=*c;
+	*c=*d;
+	*d=temp;
+	cout<<"pointer"<<endl;
+
+}
+void main()
+{
+	clrscr();
+	int a=10,b=20;
+	cout<<a<<"\t"<<b<<endl;
+	swap(a,b);
+	cout<<a<<"\t"<<b<<endl;
+	swap(&a,&b);
+	cout<<a<<"\t"<<b<<endl;
+
+	getch();
+
+
+}

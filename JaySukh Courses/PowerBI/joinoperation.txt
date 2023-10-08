@@ -1,0 +1,40 @@
+A---left		
+id	name
+1	jay
+2	kiran
+3	lalit
+4	sirish
+5	zarana
+
+B--right
+id	dname
+3	hr
+4	main
+5	it
+6	reserch
+7	helath
+
+inner join
+	3 lalit	hr
+	4 sirish main
+	5 zarana it
+left outer join
+	3 lalit	hr
+	4 sirish main
+	5 zarana it
+	1 jay	null
+	2 kiran	null
+right outer join
+	3 lalit	hr
+	4 sirish main
+	5 zarana it
+	6 null	reserch
+	7 null	helath
+full outer join
+	3 lalit	hr
+	4 sirish main
+	5 zarana it
+	1 jay	null
+	2 kiran	null
+	6 null	reserch
+	7 null	helath

@@ -1,0 +1,43 @@
+String----It represents fixed length string
+String objects are immutable
+Once assigned it can not be changed
+
+wrapper class----immutable
+
+Integer i1=new Integer(10);
+i1=i1+20;
+
+
+String str="jay";     int a=10;
+str="Kiran";	      a=20;
+str="Lalit";	      a=30
+
+Thread safe class---Synchronized class
+Perfomance---Fast
+
+
+StringBuffer---It represents variable length string
+StringBuffer objects are mutable
+Once assigned it can be changed
+
+StringBuffere sb=new StringBuffer("jay");
+sb.append("patel");
+sb.insert()
+sb.delete()
+
+Thread safe class---Synchronized class
+Perfomance---slow
+
+StringBuilder---
+It represents variable length string
+StringBuilder objects are mutable
+Once assigned it can be changed
+
+StringBuilder sb=new StringBuilder("jay");
+sb.append("patel");
+sb.insert()
+sb.delete()
+
+Perfomance---fast
+not a thread safe class---not a Synchronized class
+

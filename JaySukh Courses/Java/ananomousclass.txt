@@ -1,0 +1,34 @@
+Annanomus Class
+The class which has no any name but it implements some interface or extends
+some class
+It also overrides the necessary methods and this syntax also 
+create the object of that class
+
+interface interface1
+{
+	public void show();
+} 
+
+class A implements interface1
+{
+	public void show()
+	{}
+}
+A a1=new A();
+a1.show();
+
+
+new interface1()
+{
+	public void show()
+	{}
+}.show();
+
+
+
+interface1 i1=new interface1()
+{
+	public void show()
+	{}
+};
+i1.show();

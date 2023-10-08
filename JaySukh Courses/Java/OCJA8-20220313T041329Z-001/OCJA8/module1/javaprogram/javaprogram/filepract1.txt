@@ -1,0 +1,114 @@
+mkdir pract1
+
+cd pract1
+
+main class------com.greetings package
+
+create src directory within it the directory structure to match the package name
+
+mkdir src
+cd src
+mkdir com
+cd com
+mkdir greeting
+
+cd src/com/greeting
+
+create Main.java file here
+
+
+package com.greeting;
+
+public class Main
+{
+	public static void main(String arg[])
+	{
+		System.out.println("Hello");
+	}
+}
+
+create classes directory in pract1 to store class file
+mkdir classes
+
+compile your code
+
+javac -d classes src/com/greeting/Main.java
+so it will create com greeting folder automatically in will palce compile class file into greeting
+
+
+type tree /f command in pract1
+
+test the application from the same location, Java need to know the location of the class so you can use -cp(classpath) parameter
+
+
+java -cp classes com.greeting.Main
+
+
+Now make this simple application to modular java application
+
+create module directory in the src folder just above the package folder com
+both moddule and directory will be names hello
+
+
+cd src
+
+mkdir hello
+
+move comm to the hello direcotry
+
+create file module-info.java put it in the root directory of module parallel with com
+
+module hello
+{
+}
+
+name of module is hello located this file in hello folder(same)
+Hear the module is empty we are using one class System from java.base module
+
+java.base module doesnot need to be explicitly specified as required module because it is implicitylyalways present
+
+now got the pract1 directory and compile the application
+
+javac -d mods/hello src/hello/module-info.java src/hello/com/greeting/Main.java
+
+module-info.java is specified first so the compiler knows this modular application
+you have to specify hello directory as part of destination
+
+tree /f
+
+classes directory exists but no longer necessary to execute modular application
+ now run your new modular application
+
+java -p mods -m hello/com.greeting.Main
+
+It will print hello
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

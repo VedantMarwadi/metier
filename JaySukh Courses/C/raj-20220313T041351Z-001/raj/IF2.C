@@ -1,0 +1,19 @@
+//to check the given no is odd or even
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	long int no;
+	clrscr();
+	printf("Enter any no");
+	scanf("%ld",&no);
+	if(no%2==0)
+		printf("it is even no");
+	else
+		printf("it is odd no");
+
+
+
+	getch();
+
+}

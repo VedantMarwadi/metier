@@ -1,0 +1,59 @@
+Left				Right
+A				B
+id	name			id	deptname
+1	jay			3	hr
+2	kiran			4	reserch
+3	lalit			5	main
+4	hiren			6	pro
+5	sirish			7	it
+
+Inner join----based on common column---id------------3 rows
+id	name	id	deptname
+3	lalit	3	hr
+4	hiren	4	reserch
+5	sirish	5	main
+
+left outer join= result of inner join + remaining unmatched records from the left table--5 rows
+id	name	id	deptname
+3	lalit	3	hr
+4	hiren	4	reserch
+5	sirish	5	main
+1	jay	null	null
+2	kiran	null	null
+
+right outer join= result of inner join + remaining unmatched records from the right table--5 rows
+id	name	id	deptname
+3	lalit	3	hr
+4	hiren	4	reserch
+5	sirish	5	main
+null	null	6	pro
+null	null	7	it
+
+full outer join= result of inner join + remaining unmatched records from the left table+
+					remaining unmatched records from the right table--7 rows
+id	name	id	deptname
+3	lalit	3	hr
+4	hiren	4	reserch
+5	sirish	5	main
+null	null	6	pro
+null	null	7	it
+1	jay	null	null
+2	kiran	null	null
+
+cross join or cartesian product
+A---no of rows 5	B--no of rows 5
+5 * 5==25 rows in result
+id	name	id	deptname
+1	jay	3	hr
+1	jay	4	reserch
+1	jay	5	main
+1	jay	6	pro
+1 	jay	7	it	
+
+---
+2	kiran----5 rows combine
+3	lalit----5 rows combine
+4	hiren----5 rows combine
+5	sirish----5 rows combine
+
+

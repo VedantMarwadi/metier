@@ -1,0 +1,27 @@
+//to copy one file into another file
+//char i/o
+#include<conio.h>
+#include<stdio.h>
+void main()
+{
+	FILE *p,*q;
+	char ch;
+	clrscr();
+
+	p=fopen("temp.c","r");
+	q=fopen("punit.c","w");
+	if(p==NULL)
+		printf("File does not exists");
+	ch=fgetc(p);
+	while(ch!=EOF)
+	{
+		fputc(ch,q);
+		printf("%c",ch);
+		ch=fgetc(p);
+
+	}
+	fclose(p);
+	fclose(q);
+
+	getch();
+}

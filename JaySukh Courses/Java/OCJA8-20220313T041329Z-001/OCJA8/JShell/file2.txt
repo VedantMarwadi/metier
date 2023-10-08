@@ -1,0 +1,30 @@
+void calcVolume(double r){
+System.out.println(4*Math.PI*r*r*r/3);
+}
+void calcArea(double r){
+	System.out.println(4*Math.PI*r*r);
+}
+calcVolume(1)
+calcArea(1)
+
+double calcVolume(double r){
+return 4*Math.PI*r*r*r/3;
+}
+double calcArea(double r){
+	return 4*Math.PI*r*r;
+}
+calcVolume(1)
+calcArea(1)
+
+/edit method name
+
+/set editor "C:\\Program Files\\Sublime Text 3\\sublime_text.exe"
+
+/open c:\\temp\\demo.java
+
+/save C:\Users\User\jshell.txt
+
+/drop id
+
+/methods
+

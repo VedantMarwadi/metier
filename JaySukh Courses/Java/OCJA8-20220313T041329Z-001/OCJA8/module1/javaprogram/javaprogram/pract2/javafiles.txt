@@ -1,0 +1,4 @@
+F:\javaprogram\pract2\src\core.app\module-info.java
+F:\javaprogram\pract2\src\core.app\core\util\workutil.java
+F:\javaprogram\pract2\src\main.app\module-info.java
+F:\javaprogram\pract2\src\main.app\example\app\appmain.java

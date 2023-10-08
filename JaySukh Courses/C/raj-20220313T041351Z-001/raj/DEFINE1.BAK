@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<conio.h>
+#define PI 3.14	 //	constant
+#define p printf
+#define s scanf
+#define max(a,b) a>b?a:b
+void main()
+{
+	int m,x,y;
+	float r,a;
+	int p;
+	clrscr();
+	m=max(12,34);  //12>34?12:34;
+	p("The maximum is %d\n",m);
+	p("Enter radius");
+	s("%f",&r);
+	a=PI*r*r;
+	p("The area of circle is %f\n",a);
+	p("Enter two int values\n");
+	s("%d%d",&x,&y);
+	m=max(x,y);    //x>y?x:y
+	//p("The maximum is %d\n",m);
+	//p=20;
+	//p("%d",p);
+
+	getch();
+
+}

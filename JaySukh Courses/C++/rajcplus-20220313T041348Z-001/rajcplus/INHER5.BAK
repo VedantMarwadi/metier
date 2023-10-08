@@ -1,0 +1,75 @@
+//method overriding or function overriding or method hiding
+//instance vriable hiding
+#include<iostream.h>
+#include<conio.h>
+class emp
+{
+
+	int codeno;
+	char name[25];
+	char address[50];
+	long int phone;
+	public:
+	int a;
+	void getdata()
+	{
+		cout<<"Enter codeno";
+		cin>>codeno;
+		cout<<"Enter name";
+		cin>>name;
+		cout<<"Enter address";
+		cin>>address;
+		cout<<"Enter phoneno";
+		cin>>phone;
+		a=10;
+
+	}
+	void showdata()
+	{
+	       cout<<"Codeno = "<<codeno<<endl;
+	       cout<<"Name = "<<name<<endl;
+	       cout<<"Address = "<<address<<endl;
+	       cout<<"Phone No = "<<phone<<endl;
+	}
+};
+class manager:public emp
+{
+	char dept[25];
+	int a;   //instance variable hiding
+	public:
+	void getdata() //method overriding
+	{
+		//emp::getdata();
+		cout<<"Enter department";
+		cin>>dept;
+		a=200;
+	}
+	void showdata() //method overriding
+	{
+		//emp::showdata();
+		cout<<"Department = "<<dept<<endl<<a<<endl<<emp::a<<endl;
+	}
+
+};
+void main()
+{
+	clrscr();
+	manager m1,m2;
+	cout<<"Enter data for manager1"<<endl;
+	m1.emp::getdata();
+	m1.getdata();
+	m1.emp::showdata();
+	m1.showdata();
+
+	cout<<"Enter data for manager2"<<endl;
+
+	m2.emp::getdata();
+	m2.getdata();
+	m2.emp::showdata();
+	m2.showdata();
+	//m2.showdept();
+
+	getch();
+
+
+}

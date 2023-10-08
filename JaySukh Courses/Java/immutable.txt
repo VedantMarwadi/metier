@@ -1,0 +1,87 @@
+How to create Immutable class in Java?
+Immutable class means that once an object is created, we cannot change its content. In Java, all the wrapper classes (like Integer, Boolean, Byte, Short) and String class is immutable. We can create our own immutable class as well.
+
+Following are the requirements:
+
+The class must be declared as final (So that child classes can’t be created)
+Data members in the class must be declared as final (So that we can’t change the value of it after object creation)
+A parameterized constructor
+Getter method for all the variables in it
+No setters(To not have the option to change the value of the instance variable)
+
+// An immutable class 
+public final class Student 
+{ 
+    final String name; 
+    final int regNo; 
+  
+    public Student(String name, int regNo) 
+    { 
+        this.name = name; 
+        this.regNo = regNo; 
+    } 
+    public String getName() 
+    { 
+        return name; 
+    } 
+    public int getRegNo() 
+    { 
+        return regNo; 
+    } 
+} 
+
+// Driver class 
+class Test 
+{ 
+    public static void main(String args[]) 
+    { 
+        Student s = new Student("ABC", 101); 
+        System.out.println(s.getName()); 
+        System.out.println(s.getRegNo()); 
+  
+        // Uncommenting below line causes error 
+        // s.regNo = 102; 
+    } 
+} 
+
+
+Output:
+ABC
+101
+In this example, we have created a final class named Student. It has two final data members, a parameterized constructor and getter methods. Please note that there is no setter method here.
+(In order to make it functional, create objects of Student class in the main function.)
+
+
+
+
+ Immutable objects are instances whose state doesn’t change after it has been initialized. For example, String is an immutable class and once instantiated its value never changes.
+
+
+Why String is immutable in Java is one of the popular interview questions. The string is one of the most used classes in any programming language. We know that String is immutable and final in Java. Java runtime maintains a String pool that makes it a special class.
+
+An immutable class is good for caching purpose because you don’t need to worry about the value changes. Other benefit of immutable class is that it is inherently thread-safe, so you don’t need to worry about thread safety in case of multi-threaded environment.
+
+To create an immutable class in java, you have to do following steps.
+
+Declare the class as final so it can’t be extended.
+Make all fields private so that direct access is not allowed.
+Don’t provide setter methods for variables
+Make all mutable fields final so that it’s value can be assigned only once.
+Initialize all the fields via a constructor performing deep copy.
+Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+
+
+
+
+
+
+
+String pool is possible only because String is immutable in Java. This way Java Runtime saves a lot of heap space because different String variables can refer to the same String variable in the pool. If String would not have been immutable, then String interning would not have been possible because if any variable would have changed the value, it would have been reflected in the other variables too.
+
+If String is not immutable then it would cause a severe security threat to the application. For example, database username, password are passed as String to get database connection and in socket programming host and port details passed as String. Since String is immutable, its value can’t be changed otherwise any hacker could change the referenced value to cause security issues in the application.
+
+Since String is immutable, it is safe for multithreading. A single String instance can be shared across different threads. This avoids the use of synchronization for thread safety. Strings are implicitly thread-safe.
+
+Strings are used in java classloader and immutability provides security that correct class is getting loaded by Classloader. For example, think of an instance where you are trying to load java.sql.Connection class but the referenced value is changed to myhacked.Connection class that can do unwanted things to your database.
+
+Since String is immutable, its hashcode is cached at the time of creation and it doesn’t need to be calculated again. This makes it a great candidate for the key in a Map and its processing is faster than other HashMap key objects. This is why String is the most widely used as HashMap keys.

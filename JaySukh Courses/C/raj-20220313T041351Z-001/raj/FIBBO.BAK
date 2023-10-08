@@ -1,0 +1,24 @@
+//to print the fibbonacci series
+//0,1,1,2,3,5,8,13
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+
+	long int i=-1,j=1,k,no,m;
+	clrscr();
+	printf("Enter no of terms");
+	scanf("%ld",&no);
+
+	for(m=1;m<=no;m++)
+	{
+		k=i+j;
+		printf("%ld\t",k);
+		i=j;
+		j=k;
+
+	}
+
+	getch();
+
+}

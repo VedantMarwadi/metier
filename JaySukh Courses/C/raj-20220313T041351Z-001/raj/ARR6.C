@@ -1,0 +1,34 @@
+//linear search
+//to search an elelemnt is present in the array or not
+//if present then print the index
+
+void main()
+{
+	int a[10],i,no,flag=0;
+	clrscr();
+	printf("Enter any 10 int values");
+	for(i=0;i<10;i++)
+	{
+		printf("Enter value");
+		scanf("%d",&a[i]);
+
+	}
+	printf("\nEnter no to be search\n");
+	scanf("%d",&no);
+	for(i=0;i<10;i++)
+	{
+		if(a[i]==no)
+		{
+			flag=1;
+			break;
+
+		}
+	}
+	if(flag==1)
+		printf("it is present at %d index",i);
+	else
+		printf("it is not present");
+	getch();
+
+
+}

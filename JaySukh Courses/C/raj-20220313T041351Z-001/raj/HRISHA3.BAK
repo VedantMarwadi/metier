@@ -1,0 +1,34 @@
+//to check the given no	is armstrong or not
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+	long int no,temp;
+	int rem,sum=0;
+	clrscr();
+	printf("Enter any no");
+	scanf("%ld",&no);
+	temp=no;
+	while(no>0)
+	{
+		rem=no%10;
+		sum=sum+(rem*rem*rem);
+		no=no/10;
+	}
+	printf("sum of cube of digit %d\n",sum);
+	if(sum==temp)
+		printf("It is an armstrong no");
+	else
+		printf("It is not an armstrong no");
+	getch();
+
+}
+
+
+
+
+
+
+
+
