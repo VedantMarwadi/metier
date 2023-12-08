@@ -1,1 +1,0 @@
-This directory houses a variety of books.
