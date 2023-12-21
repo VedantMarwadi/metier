@@ -1,0 +1,10 @@
+## As root execute:
+
+apt-get install python3-pip
+git clone https://www.github.com/threat9/routersploit
+cd routersploit   # move into routersploit directory
+python3 -m pip install -r requirements.txt
+
+## Start routersploit:
+python3 rsf.py
+

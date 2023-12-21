@@ -1,0 +1,15 @@
+# run as root the following commands:
+apt update && apt install apache2 proftpd postfix ssh 
+
+# start the services
+systemctl start apache2
+systemctl start ssh
+systemctl start postfix
+systemctl start proftpd
+
+
+# check they running
+systemctl status apache2
+systemctl status ssh
+systemctl status postfix
+systemctl status proftpd

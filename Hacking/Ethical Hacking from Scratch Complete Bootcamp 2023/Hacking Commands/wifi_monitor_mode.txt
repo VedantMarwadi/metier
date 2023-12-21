@@ -1,0 +1,36 @@
+##########################
+## WiFi Monitor Mode
+##########################
+
+# listing the wifi interface
+ifconfig -a
+iwconfig
+
+# installing aircrack-ng
+apt update && apt install aircrack-ng
+
+# listing the processes that could interface with monitor mode
+airmon-ng check
+
+# killing the processes that could interface with monitor mode
+airmon-ng check kill
+
+# putting the interface into monitor mode 
+airmon-ng start wlan0  # -> new interface called wlan0mon is created
+
+# testing the mode of operation
+iwconfig
+
+# disabling monitor mode (return to managed mode)
+sudo airmon-ng stop wlan0mon
+
+# testing the mode of operation
+iwconfig
+
+## 2nd method of putting the interface into monitor mode
+ifconfig wlan0 down
+iwconfig wlan0 mode monitor
+ifconfig wlan0 up
+
+# testing the mode of operation
+iwconfig

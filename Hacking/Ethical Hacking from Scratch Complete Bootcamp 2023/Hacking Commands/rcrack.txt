@@ -1,0 +1,28 @@
+##########################
+## Cracking Hashes Using RainbowCrack
+##########################
+
+# installing rainbowcrack
+apt update && apt install rainbowcrack
+
+# displaying the help
+rtgen
+
+# displaying all available charsets
+cat /usr/share/rainbowcrack/charset.txt 
+
+# performance benchmarking
+rtgen sha256 loweralpha 2 6 0 -bench
+   5.79 million / s
+
+# generating the tables (lower alphanumeric between 1 and 4 chars)
+rtgen sha256 loweralpha 1 4 0 2400 100000 0
+
+# listing the tables
+ls  /usr/share/rainbowcrack/
+
+# sorting the tables
+rtsort /usr/share/rainbowcrack/
+
+# cracking a hash
+rcrack /usr/share/rainbowcrack -h 4621c96399f18e867129114496c7a00c1dafce2ead37e0beed4b04c780cd890d

@@ -1,0 +1,6 @@
+# starting msfconsole:
+msfconsole
+msf5>
+
+msf5 > help search
+msf5 > search name:ssh type:exploit

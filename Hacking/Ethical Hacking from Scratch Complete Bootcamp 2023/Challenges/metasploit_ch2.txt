@@ -1,0 +1,6 @@
+# starting msfconsole:
+msfconsole
+msf5>
+
+# showing all exploits:
+msf5> show exploits

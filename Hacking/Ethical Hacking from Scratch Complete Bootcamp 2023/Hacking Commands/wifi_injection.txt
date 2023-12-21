@@ -1,0 +1,6 @@
+##########################
+## WiFi Injection Attack
+##########################
+
+# testing injection
+aireplay-ng --test wlan0mon 

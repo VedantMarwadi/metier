@@ -1,0 +1,33 @@
+##########################
+## CALCULATING HASHES
+##########################
+
+# calculating hashes using Linux commands
+
+md5sum /etc/passwd
+a6f07227b6ab47f6486aa3b8ec5a41de  /etc/passwd
+
+sha1sum /etc/passwd
+d928c9de9f3de0b8ab71eb453093e400bee99b6c  /etc/passwd
+
+sha256sum /etc/passwd
+e277ddd66709224518de393047a63f048b74dd9b73b1de49a24f5362d41427dd  /etc/passwd
+
+sha512sum /etc/passwd
+273a39c960f815dbba1f1a4ca198720780ee192fc2dbcd5e6e6ed54122c564879b99ccb73daa62c6c7b49dbb3c97bb8ec1eebf211f668c49f2bbe037b8738eb5  /etc/passwd
+
+echo -n "ethical hacking" | sha256sum
+285f81a21734ec2f9f667dee22490ec6053e414f9f35efb2170f1b966279916c  -
+
+# calculating hashes using openssl 
+
+# displaying all supported algorithms
+openssl 
+OpenSSL> help
+
+openssl dgst -sha3-256 /etc/passwd
+
+echo -n "linux" | openssl dgst -rmd160
+(stdin)= 89939edf840d6edd260dcf326eb71beed79f776d
+
+Online tool: https://emn178.github.io/online-tools/sha512.html

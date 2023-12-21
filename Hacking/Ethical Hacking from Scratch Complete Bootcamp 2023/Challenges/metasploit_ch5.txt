@@ -1,0 +1,3 @@
+# updating Metasploit:
+apt update && apt install metasploit-framework
+gem update --system

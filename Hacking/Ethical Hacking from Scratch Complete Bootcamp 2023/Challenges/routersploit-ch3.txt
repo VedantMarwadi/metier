@@ -1,0 +1,29 @@
+# starting routersploit
+cd routersploit
+root@kali:~/routersploit$python3 rsf.py 
+ ______            _            _____       _       _ _
+ | ___ \          | |          /  ___|     | |     (_) |
+ | |_/ /___  _   _| |_ ___ _ __\ `--. _ __ | | ___  _| |_
+ |    // _ \| | | | __/ _ \ '__|`--. \ '_ \| |/ _ \| | __|
+ | |\ \ (_) | |_| | ||  __/ |  /\__/ / |_) | | (_) | | |_
+ \_| \_\___/ \__,_|\__\___|_|  \____/| .__/|_|\___/|_|\__|
+                                     | |
+       Exploitation Framework for    |_|    by Threat9
+            Embedded Devices
+
+ Codename   : I Knew You Were Trouble
+ Version    : 3.4.1
+ Homepage   : https://www.threat9.com - @threatnine
+ Join Slack : https://www.threat9.com/slack
+
+ Join Threat9 Beta Program - https://www.threat9.com
+
+ Exploits: 132 Scanners: 4 Creds: 171 Generic: 4 Payloads: 32 Encoders: 6
+
+rsf >
+rsf > use scanners/autopwn
+rsf (AutoPwn) > 
+rsf (AutoPwn) > set target 192.168.0.1
+[+] target => 192.168.0.1
+rsf (AutoPwn) > show options
+rsf (AutoPwn) > run

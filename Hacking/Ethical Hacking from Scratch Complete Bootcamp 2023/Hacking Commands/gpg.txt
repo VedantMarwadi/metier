@@ -1,0 +1,100 @@
+##########################
+## GnuPG
+##########################
+
+# 1. Installation
+Windows: https://gpg4win.org/download.html
+Linux: apt install gnupg
+MacOs: brew install gnupg
+
+# 2. getting help
+gpg --help
+
+# 3. Symmetric encryption
+gpg -c secret.txt  # -> results secret.txt.gpg (binary file)
+
+# specifying an alternative algorithm and an output file (my_secret.txt.gpg)
+gpg -c --cipher-algo blowfish -o my_secret.txt.gpg secret.txt
+
+# creating a text (ascii) encrypted file
+gpg --armor -c secret.txt  # -> results secret.txt.asc (ascii file) 
+
+# 4. Symmetric decryption
+gpg -o secret.txt -d file.txt.gpg # -> secret.txt is the resulting file in clear-text
+gpg -o - -d file.txt.gpg    # -> print the clear-text content to the terminal
+
+# 5. Key management
+# generating a key pair
+gpg --gen-key
+
+# displaying the public keys stored in the keyring
+gpg --list-keys
+
+# displaying the secret keys stored in the keyring
+gpg --list-secret-keys
+gpg --list-secret-keys --keyid-format short
+gpg --list-secret-keys --keyid-format long
+
+# exporting a private key by id into a text format
+gpg --export-secret-keys --armor B211B48E > private_key.asc 
+
+# exporting a public key by id into a text format
+gpg --export --armor B211B48E > public_key.asc
+
+# deleting a secret key by id
+gpg --delete-secret-keys B211B48E
+
+# deleting a public key by id
+gpg --delete-keys B211B48E
+
+# importing a private or public key from a text file
+gpg --import private.asc 
+gpg --import public.pub 
+
+# importing a public key from a key server
+gpg --keyserver pgp.mit.edu  --recv 8483C65D
+
+# publishing a public key on a key server
+gpg --keyserver hkp://pgp.mit.edu --send-keys 30E6A0BE
+
+# searching for a key on a key server
+gpg --keyserver pgp.mit.edu --search-keys string_to_match
+gpg --keyserver pgp.mit.edu --search-keys name@email.com
+
+
+# 6. Asymmetric (Public Key) encryption
+# encrypting a file asymmetrically using the public key id 95FC2D9E80DB23C0 (should have it in the keyring) 
+gpg --encrypt --recipient 95FC2D9E80DB23C0 message.txt # -> results a binary file
+gpg --encrypt --recipient 95FC2D9E80DB23C0 --armor message.txt # -> results an ascii file
+
+# decrypting the file (should have the private key)
+gpg --decrypt -o file.txt message.txt.asc
+
+
+#7. Digital Signing
+# generating a clear-text ascii file that contains both the content and the signature at the end (file.txt.asc).
+gpg --clearsign file.txt
+
+# generating a clear-text binary file that contains both the content and the signature at the end (file.txt.gpg).
+gpg --sign file.txt
+
+# generating a binary detached-signature
+gpg --detach-sig --output message.txt.sig message.txt
+
+# generating an ascii detached signature
+gpg  --detach-sig --armor --output message.sig.asc message.txt
+
+# To check a signature you need: a) the file to check b) the signature c) the public key of the one that signed
+
+# checking a signature
+gpg --verify message.txt.asc
+
+# checking a signature and extracting the document without the signature
+gpg --decrypt message.txt.asc
+gpg --output file.txt --decrypt message.txt.asc
+
+# checking a detached signature
+gpg --verify message.sig.asc message.txt
+
+# encrypting (asymmetrically) and signing a file
+gpg --encrypt --recipient PUBLIC_KEY_ID --sign message.txt

@@ -1,0 +1,7 @@
+# importing the public key
+gpg --keyserver pool.sks-keyservers.net  --recv DEBDE07EC6BB4863
+# gpg --keyserver pgp.mit.edu  --recv DEBDE07EC6BB4863
+
+
+# listing the public keys
+gpg --list-keys

